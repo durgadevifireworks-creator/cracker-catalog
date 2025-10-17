@@ -1,0 +1,252 @@
+/* Base layout */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #fff8e1, #ffe0b2);
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: linear-gradient(to right, #ff6f00, #ff8f00);
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.controls input,
+.controls select {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  min-width: 200px;
+}
+
+/* Category section */
+.category {
+  margin: 2rem;
+}
+
+.category h2 {
+  background: linear-gradient(to right, #ffe57f, #ffd740);
+  color: #4e2600;
+  padding: 0.75rem 1rem;
+  border-left: 6px solid #ff6f00;
+  border-radius: 6px;
+  font-size: 1.2rem;
+}
+
+/* Product grid */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+/* Product card */
+.product {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.product img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.product h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.product p {
+  font-size: 0.95rem;
+  margin: 0.3rem 0;
+}
+
+/* Buttons */
+button {
+  background: linear-gradient(to right, #ff6f00, #ff8f00);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(to right, #e65100, #ff6f00);
+}
+.back-button {
+  background: #fff3e0;
+  color: #d84315;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+}
+
+.back-button:hover {
+  background: #ffe0b2;
+}
+
+/* Admin and cart links */
+.admin-link {
+  background: #fff3e0;
+  color: #d84315;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.admin-link:hover {
+  background: #ffe0b2;
+}
+
+/* Order display */
+.order {
+  background: white;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  color: #333;
+}
+
+.order h3 {
+  margin-top: 0;
+  color: #ff6f00;
+}
+
+/* Admin login */
+main#loginSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+main#loginSection input {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 250px;
+}
+
+main#loginSection button {
+  background: linear-gradient(to right, #ff6f00, #ff8f00);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#loginError {
+  color: red;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product img {
+    height: 140px;
+  }
+}
+#ordersSection {
+  padding: 2rem;
+}
+
+.order ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.order ul li {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+input[type="text"],
+textarea {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+.success-message {
+  background: #c8e6c9;
+  color: #2e7d32;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+  font-weight: bold;
+}
+footer {
+  background: #ffe0b2;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #4e2600;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+}
+

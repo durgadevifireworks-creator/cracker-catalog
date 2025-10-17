@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🎇 Cracker Catalog</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>🎇 Cracker Catalog</h1>
+    <nav>
+      <a href="cart.html" class="admin-link">🛒 View Cart</a>
+    </nav>
+  </header>
+
+  <section class="controls">
+    <input type="text" id="searchInput" placeholder="Search crackers..." />
+    <select id="categoryFilter">
+      <option value="">All Categories</option>
+    </select>
+  </section>
+
+  <section id="categoryGrid" class="category"></section>
+  <section id="productGrid" style="display:none;"></section>
+
+  <footer>© 2025 Durga's Cracker Catalog. All rights reserved.</footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

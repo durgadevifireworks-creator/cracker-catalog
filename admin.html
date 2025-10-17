@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ffcc70, #ff8177);
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #333;
+    }
+    #login-form {
+      margin: 20px auto;
+      max-width: 300px;
+    }
+    input {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #ff5e57;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #logout {
+      display: none;
+      margin-top: 20px;
+    }
+    #orders-section {
+      display: none;
+      margin-top: 40px;
+    }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 90%;
+      background-color: #fff;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #ffb347;
+    }
+    footer {
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Admin Login</h1>
+
+  <div id="login-form">
+    <input type="email" id="email" placeholder="Admin Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="login()">Login</button>
+  </div>
+
+  <button id="logout" onclick="logout()">Logout</button>
+
+  <div id="orders-section">
+    <h2>📦 Placed Orders</h2>
+    <table id="orders-table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>Items</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <footer>
+    © Durga's Cracker Catalog. Admin Panel.
+  </footer>
+
+  <script>
+    function login() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const adminEmail = "admin@durga.com";
+      const adminPassword = "durga123";
+
+      if (email === adminEmail && password === adminPassword) {
+        alert("Login successful!");
+        document.getElementById("login-form").style.display = "none";
+        document.getElementById("logout").style.display = "inline-block";
+        document.getElementById("orders-section").style.display = "block";
+        loadOrders();
+      } else {
+        alert("Invalid credentials. Try again.");
+      }
+    document.getElementById("orders-section").style.display = "block";loadOrders();
+
+    }
+
+    function logout() {
+      document.getElementById("login-form").style.display = "block";
+      document.getElementById("logout").style.display = "none";
+      document.getElementById("orders-section").style.display = "none";
+      alert("Logged out.");
+    }
+
+    function loadOrders() {
+  const orders = JSON.parse(localStorage.getItem("orders")) || [];
+  const tbody = document.querySelector("#orders-table tbody");
+  tbody.innerHTML = "";
+
+  if (orders.length === 0) {
+    const row = document.createElement("tr");
+    row.innerHTML = `<td colspan="6">No orders found.</td>`;
+    tbody.appendChild(row);
+    return;
+  }
+
+  orders.forEach(order => {
+    const itemsList = order.items.map(item => `${item.name} x${item.quantity}`).join(", ");
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${order.time}</td>
+      <td>${order.customer.name}</td>
+      <td>${order.customer.phone}</td>
+      <td>${order.customer.address}</td>
+      <td>${itemsList}</td>
+      <td>₹${order.total}</td>
+    `;
+    tbody.appendChild(row);
+  });
+}
+  </script>
+</body>
+</html>
