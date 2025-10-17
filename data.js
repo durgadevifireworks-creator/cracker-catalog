@@ -109,7 +109,7 @@ const products = [
     description: "Mini bijili bombs",
     price: 155,
     discount: 0.3,
-    image: "images/cat-mini-bijili.jpeg"
+    image: "cat-mini-bijili.jpeg"
   },
   {
     name: "MER – 5 STAR",
